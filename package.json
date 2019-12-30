@@ -1,8 +1,13 @@
 {
   "name": "solid-state-deply",
   "version": "0.0.0",
-  "description": "",
-  "keywords": [],
+  "description": "Netlify replacement to deploy simple websites with better flexibility and speed and without vendor lock-in",
+  "keywords": [
+    "deploy",
+    "google cloud",
+    "cloudflare",
+    "netlify"
+  ],
   "bin": "./bin.js",
   "scripts": {
     "test": "eslint . && yaspeller *.md"
