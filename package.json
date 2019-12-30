@@ -1,0 +1,52 @@
+{
+  "name": "solid-state-deply",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [],
+  "bin": "./bin.js",
+  "scripts": {
+    "test": "eslint . && yaspeller *.md"
+  },
+  "author": "Andrey Sitnik <andrey@sitnik.ru>",
+  "license": "MIT",
+  "repository": "ai/solid-state-deploy",
+  "devDependencies": {
+    "@logux/eslint-config": "^35.0.1",
+    "chalk": "^3.0.0",
+    "clean-publish": "^1.1.4",
+    "eslint": "^6.7.2",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-es5": "^1.4.1",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jest": "^23.1.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prefer-let": "^1.0.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-security": "^1.4.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-unicorn": "^15.0.1",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.5.0",
+    "yaspeller": "^6.0.2"
+  },
+  "eslintConfig": {
+    "extends": "@logux/eslint-config/node"
+  },
+  "lint-staged": {
+    "*.md": "yaspeller",
+    "*.js": "eslint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "yaspeller": {
+    "lang": "en",
+    "ignoreCapitalization": true,
+    "ignoreText": [
+      " \\(by [^)]+\\)."
+    ],
+    "dictionary": []
+  }
+}
