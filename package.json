@@ -9,6 +9,10 @@
     "netlify"
   ],
   "bin": "./bin.js",
+  "type": "module",
+  "engines": {
+    "node": ">=13.2.0"
+  },
   "scripts": {
     "test": "eslint . && yaspeller *.md"
   },
@@ -17,7 +21,6 @@
   "repository": "ai/solid-state-deploy",
   "devDependencies": {
     "@logux/eslint-config": "^35.0.1",
-    "chalk": "^3.0.0",
     "clean-publish": "^1.1.4",
     "eslint": "^6.7.2",
     "eslint-config-standard": "^14.1.0",
@@ -37,6 +40,9 @@
   "eslintConfig": {
     "extends": "@logux/eslint-config/node"
   },
+  "eslintIgnore": [
+    "dirs.js"
+  ],
   "lint-staged": {
     "*.md": "yaspeller",
     "*.js": "eslint"
@@ -55,5 +61,10 @@
     "dictionary": [
       "Versioning"
     ]
+  },
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "cosmiconfig": "^6.0.0",
+    "pkg-up": "^3.1.0"
   }
 }

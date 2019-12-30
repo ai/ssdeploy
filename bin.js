@@ -1,0 +1,48 @@
+#!/usr/bin/env node
+
+import chalk from 'chalk'
+
+import showVersion from './show-version.js'
+import loadConfig from './load-config.js'
+import showHelp from './show-help.js'
+import runImage from './run-image.js'
+import deploy from './deploy.js'
+import sign from './sign.js'
+
+async function prepare () {
+  let config = await loadConfig()
+  return config
+}
+
+async function run () {
+  let command = process.argv[2]
+  if (command === '--version') {
+    await showVersion()
+  } else if (!command || command === 'help' || command === '--help') {
+    showHelp()
+  } else if (command === 'run') {
+    await runImage(await prepare())
+  } else if (command === 'deploy') {
+    await deploy(await prepare())
+  } else if (command === 'sign') {
+    let file = process.argv[3]
+    if (!file) {
+      process.stderr.write(chalk.red('Missed file to sign') + '\n')
+      process.exit(1)
+    }
+    await sign(file)
+  } else {
+    process.stderr.write(chalk.red(`Unknown command ${ command }`) + '\n\n')
+    showHelp()
+    process.exit(1)
+  }
+}
+
+run().catch(e => {
+  process.stderr.write(chalk.red(e.stack) + '\n')
+  process.exit(1)
+})
+
+// sign
+// run
+// deploy
