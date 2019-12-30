@@ -1,4 +1,4 @@
-import { dirname, join } from 'path'
+import { basename, dirname, join } from 'path'
 import { existsSync } from 'fs'
 import cosmiconfig from 'cosmiconfig'
 import pkgUp from 'pkg-up'
@@ -28,5 +28,6 @@ export default async function loadConfig () {
       }
     }
   }
+  result.config.name = basename(root)
   return result.config
 }

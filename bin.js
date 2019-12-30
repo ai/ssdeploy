@@ -3,16 +3,10 @@
 import chalk from 'chalk'
 
 import showVersion from './show-version.js'
-import loadConfig from './load-config.js'
 import showHelp from './show-help.js'
 import runImage from './run-image.js'
 import deploy from './deploy.js'
 import sign from './sign.js'
-
-async function prepare () {
-  let config = await loadConfig()
-  return config
-}
 
 async function run () {
   let command = process.argv[2]
@@ -21,9 +15,9 @@ async function run () {
   } else if (!command || command === 'help' || command === '--help') {
     showHelp()
   } else if (command === 'run') {
-    await runImage(await prepare())
+    await runImage()
   } else if (command === 'deploy') {
-    await deploy(await prepare())
+    await deploy()
   } else if (command === 'sign') {
     let file = process.argv[3]
     if (!file) {
