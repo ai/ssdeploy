@@ -52,6 +52,8 @@
     "ignoreText": [
       " \\(by [^)]+\\)."
     ],
-    "dictionary": []
+    "dictionary": [
+      "Versioning"
+    ]
   }
 }
