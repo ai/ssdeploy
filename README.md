@@ -13,6 +13,8 @@ It is like Netlify with:
 * **Local tests.** You can run a server on your laptop to test redirects
   and scripts.
 
+You will have built-in HTTPS and deploy by `git push`.
+
 We also have trade-offs. It is not free, but for a simple website,
 it will cost you cents per month. You need more steps to install it,
 but after you have the same simple workflow.
@@ -76,6 +78,16 @@ but after you have the same simple workflow.
 We recommend to check final result
 [for blocking in Russia](https://isitblockedinrussia.com/) and recreate
 Cloudflare account to change IP addressed.
+
+Adding `CAA` records to Cloudflare **DNS** settings will also improve
+security:
+
+```
+CAA @   0 "only allow specific hostname" digicert.com
+CAA @   0 "only allow specific hostname" letsencrypt.org
+CAA www 0 "only allow specific hostname" digicert.com
+CAA www 0 "only allow specific hostname" letsencrypt.org
+```
 
 [Google Cloud]: https://console.cloud.google.com/
 [Cloudflare]: https://www.cloudflare.com/
