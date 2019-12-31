@@ -47,10 +47,13 @@ async function push (image) {
 
 async function run (image, project, app, region = 'us-east1') {
   await wrap('Starting image on Google Cloud Run', async () => {
-    await exec('gcloud components install beta --quiet')
+    try {
+      await exec('gcloud components install beta --quiet')
+    } catch { }
     await exec(
-      `gcloud beta run deploy ${ app } --image ${ image } ` +
-      `--project ${ project } --region=${ region } --platform managed`
+      `gcloud beta run deploy ${ app } --image ${ image }` +
+      `--project ${ project } --region=${ region } ` +
+      '--platform managed  --allow-unauthenticated'
     )
   })
 }
