@@ -58,10 +58,16 @@ but after you have the same simple workflow.
 15. Go to **Cloud Run** at [Google Cloud] and find your server. Open it
     by clicking on the name and find URL like `testcom-hjv54hv.a.run.app`.
     Check that the website is working.
-16. Create a new [Cloudflare] account.
-    Create a site with a domain from Cloud Run.
-17. Find **Zone ID** at site overview and create **API token**.
-18. Use them in `CLOUDFLARE_ZONE` and `CLOUDFLARE_TOKEN` secrets at GitHub.
+16. Click on **Manage Custom Domains** → **Add mapping**. Select your app,
+    **Verify a new domain**, and enter your domain name.
+    Finish domain verification with Webmaster Central.
+17. After verification open **Add mapping** dialog again, select your app,
+    domain, and leave subdomain blank. You will get `A` and `AAAA` records.
+18. Create a new [Cloudflare] account.
+    Create a site with `A` and `AAAA` records from Cloud Run.
+19. Find **Zone ID** at site overview and create **API token**
+    with `cache cleaner` name and `Cache Purge`/`Edit` permission.
+20. Use them in `CLOUDFLARE_ZONE` and `CLOUDFLARE_TOKEN` secrets at GitHub.
 
 [Google Cloud]: https://console.cloud.google.com/
 [Cloudflare]: https://www.cloudflare.com/

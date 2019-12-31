@@ -79,7 +79,8 @@
       "IAM",
       "base64",
       "Cloudflare",
-      "GitHub"
+      "GitHub",
+      "subdomain"
     ]
   }
 }
