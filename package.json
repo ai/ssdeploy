@@ -18,6 +18,14 @@
   "scripts": {
     "test": "eslint . && yaspeller *.md"
   },
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "dotenv": "^8.2.0",
+    "make-dir": "^3.0.0",
+    "open": "^7.0.0",
+    "ora": "^4.0.3",
+    "pkg-up": "^3.1.0"
+  },
   "author": "Andrey Sitnik <andrey@sitnik.ru>",
   "license": "MIT",
   "repository": "ai/solid-state-deploy",
@@ -61,15 +69,18 @@
       " \\(by [^)]+\\)."
     ],
     "dictionary": [
-      "Versioning"
+      "Versioning",
+      "Netlify",
+      "CDN",
+      "TLS",
+      "RTT",
+      "crontab",
+      "Nginx",
+      "CI",
+      "IAM",
+      "base64",
+      "Cloudflare",
+      "GitHub"
     ]
-  },
-  "dependencies": {
-    "chalk": "^3.0.0",
-    "dotenv": "^8.2.0",
-    "make-dir": "^3.0.0",
-    "open": "^7.0.0",
-    "ora": "^4.0.3",
-    "pkg-up": "^3.1.0"
   }
 }
