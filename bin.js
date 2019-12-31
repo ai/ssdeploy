@@ -21,6 +21,8 @@ async function run () {
     showHelp()
   } else if (command === 'init') {
     await init()
+  } else if (command === 'shell') {
+    await runImage('/bin/sh')
   } else if (command === 'run') {
     await runImage()
   } else if (command === 'purge') {

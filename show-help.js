@@ -16,6 +16,7 @@ export default function showHelp () {
     '  ' + g('init') + '        Create .github/workflow/deploy.yml',
     '  ' + g('deploy') + '      Deploy website to the cloud',
     '  ' + g('run') + '         Run Docker image locally',
+    '  ' + g('shell') + '       Run shell inside Docker image',
     '  ' + g('purge') + '       Clean CDN cache',
     '  ' + g('sign') + ' ' + y('FILE') + '   Sign security.txt',
     '',
