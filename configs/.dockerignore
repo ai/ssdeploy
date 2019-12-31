@@ -1,5 +1,5 @@
 node_modules/
-!node_modules/ssdeploy/nginx.conf
+!node_modules/ssdeploy/configs/
 .github/
 .cache/
 .git/

@@ -3,13 +3,13 @@
 import dotenv from 'dotenv'
 import chalk from 'chalk'
 
-import showVersion from './show-version.js'
-import showHelp from './show-help.js'
-import runImage from './run-image.js'
-import deploy from './deploy.js'
-import purge from './purge.js'
-import init from './init.js'
-import sign from './sign.js'
+import showVersion from './lib/show-version.js'
+import showHelp from './lib/show-help.js'
+import runImage from './lib/run-image.js'
+import deploy from './lib/deploy.js'
+import purge from './lib/purge.js'
+import init from './lib/init.js'
+import sign from './lib/sign.js'
 
 dotenv.config()
 

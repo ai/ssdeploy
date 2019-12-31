@@ -15,9 +15,7 @@ It is like Netlify with:
 
 You will have built-in HTTPS and deploy by `git push`.
 
-<p align="center">
-  <img src="./example.png" alt="ssdeploy example" width="593">
-</p>
+<img src="./example.png" alt="ssdeploy example" width="593">
 
 We also have trade-offs. It is not free, but for a simple website,
 it will cost you cents per month. You need more steps to install it,
@@ -62,7 +60,7 @@ but after you have the same simple workflow.
 14. Push the project’s changes to GitHub Actions to start deploying.
     Open **Actions** tab on GitHub to check out the process.
 15. Go to **Cloud Run** at [Google Cloud] and find your server. Open it
-    by clicking on the name and find URL like `examplecom-hjv54hv.a.run.app`.
+    by clicking on the name and find the URL like `examplecom-hjv54hv.a.run.app`.
     Check that the website is working.
 16. Click on **Manage Custom Domains** → **Add mapping**. Select your app,
     **Verify a new domain**, and enter your domain name.
@@ -79,7 +77,7 @@ but after you have the same simple workflow.
     to add `www` subdomain and add `CNAME` record to Cloudflare **DNS**
     settings.
 
-We recommend to check final result
+We recommend checking the final result
 [for blocking in Russia](https://isitblockedinrussia.com/) and recreate
 Cloudflare account to change IP addressed.
 
@@ -165,7 +163,7 @@ to define crontab jobs:
 FROM nginx:alpine
 RUN rm -R /etc/nginx/conf.d
 COPY ./dist/ /var/www/
-COPY ./node_modules/ssdeploy/nginx.conf /etc/nginx/nginx.template
+COPY ./node_modules/ssdeploy/configs/nginx.conf /etc/nginx/nginx.template
 COPY ./nginx.conf /etc/nginx/server.conf
 RUN echo "#\!/bin/sh\necho 1" > /etc/periodic/hourly/example
 RUN chmod a+x /etc/periodic/hourly/example

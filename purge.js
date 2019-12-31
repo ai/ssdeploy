@@ -1,18 +1,8 @@
-import callCloudflare from './call-cloudflare.js'
-import { showWarning } from './show-error.js'
-import { wrap } from './show-spinner.js'
+#!/usr/bin/env node
 
-export default async function purge () {
-  if (!process.env.CLOUDFLARE_ZONE || !process.env.CLOUDFLARE_TOKEN) {
-    showWarning(
-      'Get zone ID and API token in CLoudflare dashboard',
-      'and set `CLOUDFLARE_TOKEN` and `CLOUDFLARE_ZONE`',
-      'environment variables at your CI'
-    )
-  } else {
-    await wrap('Cleaning CDN cache', async spinner => {
-      await callCloudflare('purge_cache', { purge_everything: true })
-      spinner.succeed('CDN cache was cleaned')
-    })
-  }
-}
+import callCloudflare from './lib/call-cloudflare.js'
+
+callCloudflare('purge_cache', { purge_everything: true }).catch(e => {
+  process.stderr.write(e.stack + '\n')
+  process.exit(1)
+})
