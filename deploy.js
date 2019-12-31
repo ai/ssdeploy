@@ -13,6 +13,7 @@ for (let i in process.env) {
 
 async function exec (command, opts) {
   return new Promise((resolve, reject) => {
+    process.stderr.write(chalk.gray('$ ' + command + '\n'))
     let cmd = spawn(command, { ...opts, env: safeEnv, shell: '/bin/bash' })
     let stdout = ''
     cmd.stdout.on('data', data => {
