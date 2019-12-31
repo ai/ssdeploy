@@ -29,7 +29,7 @@ async function exec (command, opts) {
 async function installGcloud () {
   await wrap('Installing Google Cloud', async () => {
     await exec('curl https://sdk.cloud.google.com | bash')
-    await exec(`exec -l ${ process.env.SHELL } gcloud components install beta`)
+    await exec('exec /bin/sh gcloud components install beta')
   })
 }
 
