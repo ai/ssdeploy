@@ -51,7 +51,7 @@ async function run (image, project, app, region = 'us-east1') {
       await exec('gcloud components install beta --quiet')
     } catch { }
     await exec(
-      `gcloud beta run deploy ${ app } --image ${ image }` +
+      `gcloud beta run deploy ${ app } --image ${ image } ` +
       `--project ${ project } --region=${ region } ` +
       '--platform managed  --allow-unauthenticated'
     )
