@@ -1,5 +1,5 @@
 {
-  "name": "solid-state-deploy",
+  "name": "ssdeploy",
   "version": "0.1.0",
   "description": "Netlify replacement to deploy simple websites with better flexibility and speed and without vendor lock-in",
   "keywords": [
@@ -28,7 +28,7 @@
   },
   "author": "Andrey Sitnik <andrey@sitnik.ru>",
   "license": "MIT",
-  "repository": "ai/solid-state-deploy",
+  "repository": "ai/ssdeploy",
   "devDependencies": {
     "@logux/eslint-config": "^35.0.1",
     "clean-publish": "^1.1.4",

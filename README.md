@@ -45,7 +45,7 @@ but after you have the same simple workflow.
 11. Install Solid State Deploy to your project.
 
     ```sh
-    npm i solid-state-deploy
+    npm i ssdeploy
     ```
 12. Create GitHub Actions workflow by calling:
 
@@ -118,7 +118,7 @@ to define crontab jobs:
 FROM nginx:alpine
 RUN rm -R /etc/nginx/conf.d
 COPY ./dist/ /var/www/
-COPY ./node_modules/solid-state-deploy/nginx.conf /etc/nginx/nginx.template
+COPY ./node_modules/ssdeploy/nginx.conf /etc/nginx/nginx.template
 COPY ./nginx.conf /etc/nginx/server.conf
 RUN echo "#\!/bin/sh\necho 1" > /etc/periodic/hourly/example
 RUN chmod a+x /etc/periodic/hourly/example

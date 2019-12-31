@@ -8,5 +8,5 @@ export default async function showVersion () {
   let packagePath = join(ROOT, 'package.json')
   let packageJson = await fs.readFile(packagePath)
   let { version } = JSON.parse(packageJson)
-  process.stdout.write(`solid-state-deploy ${ chalk.bold(version) }\n`)
+  process.stdout.write(`ssdeploy ${ chalk.bold(version) }\n`)
 }

@@ -10,7 +10,7 @@ let b = chalk.bold
 
 export default function showHelp () {
   print(
-    b('Usage: ') + 'npx solid-state-deploy ' + g('COMMAND') + y(' [OPTION]'),
+    b('Usage: ') + 'npx ssdeploy ' + g('COMMAND') + y(' [OPTION]'),
     '',
     b('Commands:'),
     '  ' + g('init') + '        Create .github/workflow/deploy.yml',
@@ -24,8 +24,8 @@ export default function showHelp () {
     '  ' + g('--verbose') + '   Show debug information',
     '',
     b('Examples:'),
-    '  npx solid-state-deploy deploy',
-    '  npx solid-state-deploy run',
-    '  npx solid-state-deploy sign ./src/well-known/security.txt'
+    '  npx ssdeploy deploy',
+    '  npx ssdeploy run',
+    '  npx ssdeploy sign ./src/well-known/security.txt'
   )
 }
