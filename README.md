@@ -15,6 +15,10 @@ It is like Netlify with:
 
 You will have built-in HTTPS and deploy by `git push`.
 
+<p align="center">
+  <img src="./example.png" alt="ssdeploy example" width="593">
+</p>
+
 We also have trade-offs. It is not free, but for a simple website,
 it will cost you cents per month. You need more steps to install it,
 but after you have the same simple workflow.
@@ -40,7 +44,7 @@ but after you have the same simple workflow.
 8. Add new secret `GCLOUD_PROJECT` with Google Cloud project name like
    `test-255417`. You can find project ID by opening a project switcher
    at the top of [Google Cloud].
-9. Choose application name (like `testcom`) and add `GCLOUD_APP` secret with
+9. Choose application name (like `examplecom`) and add `GCLOUD_APP` secret with
    this name.
 10. Call `base64 key-partition-….json` (file from step 4) and add `GCLOUD_AUTH`
     secret with the base64 content of this file.
@@ -58,7 +62,7 @@ but after you have the same simple workflow.
 14. Push the project’s changes to GitHub Actions to start deploying.
     Open **Actions** tab on GitHub to check out the process.
 15. Go to **Cloud Run** at [Google Cloud] and find your server. Open it
-    by clicking on the name and find URL like `testcom-hjv54hv.a.run.app`.
+    by clicking on the name and find URL like `examplecom-hjv54hv.a.run.app`.
     Check that the website is working.
 16. Click on **Manage Custom Domains** → **Add mapping**. Select your app,
     **Verify a new domain**, and enter your domain name.
