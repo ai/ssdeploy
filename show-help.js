@@ -14,6 +14,7 @@ export default function showHelp () {
     '',
     b('Commands:'),
     '  ' + g('deploy') + '      Deploy website to the cloud',
+    '  ' + g('purge') + '       Clean CDN cache',
     '  ' + g('run') + '         Run Docker image locally',
     '  ' + g('sign') + ' ' + y('FILE') + '   Sign security.txt',
     '',

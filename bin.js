@@ -6,6 +6,7 @@ import showVersion from './show-version.js'
 import showHelp from './show-help.js'
 import runImage from './run-image.js'
 import deploy from './deploy.js'
+import purge from './purge.js'
 import sign from './sign.js'
 
 async function run () {
@@ -16,6 +17,8 @@ async function run () {
     showHelp()
   } else if (command === 'run') {
     await runImage()
+  } else if (command === 'purge') {
+    await purge()
   } else if (command === 'deploy') {
     await deploy()
   } else if (command === 'sign') {
