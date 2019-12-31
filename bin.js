@@ -33,10 +33,6 @@ async function run () {
 }
 
 run().catch(e => {
-  process.stderr.write(chalk.red(e.stack) + '\n')
+  if (!e.own) process.stderr.write(chalk.red(e.stack) + '\n')
   process.exit(1)
 })
-
-// sign
-// run
-// deploy
