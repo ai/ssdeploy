@@ -1,5 +1,3 @@
-import { promises as fs } from 'fs'
-import { join } from 'path'
 import child from 'child_process'
 import chalk from 'chalk'
 
@@ -28,22 +26,6 @@ async function exec (command, opts) {
       }
     )
   })
-}
-
-async function installGcloud () {
-  await wrap('Installing Google Cloud', async () => {
-    await exec('curl https://sdk.cloud.google.com | bash')
-    await exec('exec -l /bin/bash gcloud components install beta')
-  })
-}
-
-async function auth (gauth) {
-  let key = (Buffer.from(gauth, 'base64')).toString('utf-8')
-  let keyPath = join(process.env.HOME, 'gcloud-key.json')
-  await fs.writeFile(keyPath, key)
-  await exec(`gcloud auth activate-service-account --key-file=${ keyPath }`)
-  await fs.unlink(keyPath)
-  await exec('gcloud auth configure-docker')
 }
 
 async function push (image) {
@@ -81,20 +63,12 @@ export default async function deploy () {
       'Set `GCLOUD_PROJECT` and `GCLOUD_APP` environment variables at your CI'
     )
   }
-  if (!process.env.GCLOUD_AUTH) {
-    throw showError(
-      'Check our docs to set `GCLOUD_AUTH` environment variables at your CI:',
-      'https://github.com/ai/solid-state-deploy'
-    )
-  }
 
   let project = process.env.GCLOUD_PROJECT
   let app = process.env.GCLOUD_APP
   let image = `gcr.io/${ project }/${ app }`
 
   await build(image, safeEnv)
-  await installGcloud()
-  await auth(process.env.GCLOUD_AUTH)
   await push(image)
   await run(image, project, app, process.env.GCLOUD_REGION)
   await purge()
