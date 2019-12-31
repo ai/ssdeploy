@@ -15,21 +15,25 @@ for (let i in process.env) {
 
 async function exec (command, opts) {
   return new Promise((resolve, reject) => {
-    child.exec(command, { ...opts, env: safeEnv }, (error, stdout, stderr) => {
-      if (error) {
-        process.stderr.write(chalk.red(stderr))
-        reject(error)
-      } else {
-        resolve(stdout)
+    child.exec(
+      command,
+      { ...opts, env: safeEnv, shell: '/bin/bash' },
+      (error, stdout, stderr) => {
+        if (error) {
+          process.stderr.write(chalk.red(stderr))
+          reject(error)
+        } else {
+          resolve(stdout)
+        }
       }
-    })
+    )
   })
 }
 
 async function installGcloud () {
   await wrap('Installing Google Cloud', async () => {
     await exec('curl https://sdk.cloud.google.com | bash')
-    await exec('exec /bin/sh gcloud components install beta')
+    await exec('exec -l /bin/bash gcloud components install beta')
   })
 }
 
