@@ -1,4 +1,4 @@
-import child from 'child_process'
+import { spawn } from 'child_process'
 import chalk from 'chalk'
 
 import { wrap } from './show-spinner.js'
@@ -13,18 +13,24 @@ for (let i in process.env) {
 
 async function exec (command, opts) {
   return new Promise((resolve, reject) => {
-    child.exec(
-      command,
-      { ...opts, env: safeEnv, shell: '/bin/bash' },
-      (error, stdout, stderr) => {
-        if (error) {
-          process.stderr.write(chalk.red(stderr))
-          reject(error)
-        } else {
-          resolve(stdout)
-        }
+    let cmd = spawn(command, { ...opts, env: safeEnv, shell: '/bin/bash' })
+    let stdout = ''
+    cmd.stdout.on('data', data => {
+      stdout += data.toString()
+      process.stderr.write(data.toString())
+    })
+    cmd.stderr.on('data', data => {
+      process.stderr.write(chalk.red(data))
+    })
+    cmd.on('exit', code => {
+      if (code === 0) {
+        resolve(stdout)
+      } else {
+        let err = new Error('Command error ' + code)
+        err.own = true
+        reject(err)
       }
-    )
+    })
   })
 }
 
