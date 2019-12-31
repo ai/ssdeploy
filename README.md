@@ -79,15 +79,24 @@ We recommend to check final result
 [for blocking in Russia](https://isitblockedinrussia.com/) and recreate
 Cloudflare account to change IP addressed.
 
-Adding `CAA` records to Cloudflare **DNS** settings will also improve
-security:
+Few extra steps will improve security:
 
-```
-CAA @   0 "only allow specific hostname" digicert.com
-CAA @   0 "only allow specific hostname" letsencrypt.org
-CAA www 0 "only allow specific hostname" digicert.com
-CAA www 0 "only allow specific hostname" letsencrypt.org
-```
+1. Go to Cloudflare **SSL/TLS** settings and enable **Full** encryption mode.
+2. Add `CAA` records to Cloudflare **DNS** settings:
+
+   ```js
+   CAA @   0 "only allow specific hostname" digicert.com
+   CAA @   0 "only allow specific hostname" letsencrypt.org
+   CAA www 0 "only allow specific hostname" digicert.com
+   CAA www 0 "only allow specific hostname" letsencrypt.org
+   ```
+3. Enable **DNSSEC** in **DNS** settings.
+4. Enable **HTST** by creating `nginx.conf` in the root of your project with:
+
+   ```cpp
+   add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload";
+   add_header X-Content-Type-Options "nosniff";
+   ```
 
 [Google Cloud]: https://console.cloud.google.com/
 [Cloudflare]: https://www.cloudflare.com/
@@ -131,9 +140,6 @@ In custom Nginx config, you can define headers and redirects. Create `nginx.conf
 in your project root.
 
 ```cpp
-add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload";
-add_header X-Content-Type-Options "nosniff";
-
 if ($host ~ ^www\.(?<domain>.+)$) {
   return 301 https://$domain$request_uri;
 }

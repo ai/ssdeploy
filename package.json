@@ -80,7 +80,9 @@
       "base64",
       "Cloudflare",
       "GitHub",
-      "subdomain"
+      "subdomain",
+      "DNSSEC",
+      "HTST"
     ]
   }
 }
