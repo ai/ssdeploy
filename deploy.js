@@ -6,4 +6,10 @@ export default async function deploy () {
       'Set `GCLOUD_PROJECT` and `GCLOUD_APP` environment variables at your CI'
     )
   }
+  if (!process.env.GCLOUD_AUTH) {
+    throw showError(
+      'Check our docs to set `GCLOUD_AUTH` environment variables at your CI:',
+      'https://github.com/ai/solid-state-deploy'
+    )
+  }
 }
