@@ -46,7 +46,7 @@ async function push (image) {
 }
 
 async function run (image, project, app, region = 'us-east1') {
-  await wrap('Starting image on Google Cloud Run', async () => {
+  await wrap('Starting image on Google Cloud Run', async spinner => {
     try {
       await exec('gcloud components install beta --quiet')
     } catch { }
@@ -55,6 +55,7 @@ async function run (image, project, app, region = 'us-east1') {
       `--project ${ project } --region=${ region } ` +
       '--platform managed  --allow-unauthenticated'
     )
+    spinner.succeed(`Image was deployed at ${ region } server`)
   })
 }
 

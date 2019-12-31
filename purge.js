@@ -10,8 +10,9 @@ export default async function purge () {
       'environment variables at your CI'
     )
   } else {
-    await wrap('Cleaning CDN cache', async () => {
+    await wrap('Cleaning CDN cache', async spinner => {
       await callCloudflare('purge_cache', { purge_everything: true })
+      spinner.succeed('CDN cache was cleaned')
     })
   }
 }
