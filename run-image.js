@@ -27,6 +27,6 @@ export default async function runImage (script) {
       `  Website is available to test at ${ y('http://localhost:8000/') }\n` +
       `  Press ${ y(ctrlC) } to stop the server\n`
     )
+    open('http://localhost:8000/')
   }
-  open('http://localhost:8000/')
 }
