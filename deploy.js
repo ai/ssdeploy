@@ -1,3 +1,9 @@
-export default async function deploy () {
+import showError from './show-error.js'
 
+export default async function deploy () {
+  if (!process.env.GCLOUD_PROJECT || !process.env.GCLOUD_APP) {
+    throw showError(
+      'Set `GCLOUD_PROJECT` and `GCLOUD_APP` environment variables at your CI'
+    )
+  }
 }
