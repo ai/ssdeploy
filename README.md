@@ -4,17 +4,17 @@ Deploy simple websites with Google Cloud and Cloudflare.
 It is like Netlify with:
 
 * **Better performance.** Cloudflare has more features for fast websites
-  than Netlify CDN. For instance, HTTP/3 and TLS 1.3 0-RTT.
+  than Netlify CDN. For instance, HTTP/3 and TLS 1.3 0-RTT.
 * **Flexibility.** You can have crontab jobs and simple scripts
-  (without persistence storage). Headers and redirects can be defined
-  with powerful and well documented Nginx config.
+  (without persistence storage). You will have powerful and well documented
+  Nginx config to define custom headers and redirects.
 * **Lack of vendor lock-in.** We use industry standards like Docker
-  and Nginx. You can change CI, CDN, or Docker cloud separately.
+  and Nginx. You can change CI, CDN, or Docker cloud separately.
 * **Local tests.** You can run a server on your laptop to test redirects
   and scripts.
 
 We also have trade-offs. It is not free, but for a simple website,
-it will cost you cents per month. You need more steps to install it,
+it will cost you cents per month. You need more steps to install it,
 but after you have the same simple workflow.
 
 <a href="https://evilmartians.com/?utm_source=ssdeploy">
@@ -44,14 +44,14 @@ but after you have the same simple workflow.
     secret with the base64 content of this file.
 11. Install Solid State Deploy to your project.
 
-   ```sh
-  npm i solid-state-deploy
-   ```
+    ```sh
+    npm i solid-state-deploy
+    ```
 12. Create GitHub Actions workflow by calling:
 
-   ```sh
-  npx ssdeploy init
-   ```
+    ```sh
+    npx ssdeploy init
+    ```
 13. Your project should build HTML files by `npm build` and put them to `dist/`.
 14. Push the project’s changes to GitHub Actions to start deploying.
     Open **Actions** tab on GitHub to check out the process.
@@ -114,7 +114,7 @@ It will be included inside the `server` context.
 Custom `Dockerfile` should be placed at your project root. It can be used
 to define crontab jobs:
 
-```ini
+```sh
 FROM nginx:alpine
 RUN rm -R /etc/nginx/conf.d
 COPY ./dist/ /var/www/
