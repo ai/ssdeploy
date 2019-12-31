@@ -1,6 +1,10 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.2.4
+* Fix first deploy.
+* Fix deploy on local laptop.
+
 ## 0.2.3
 * Clean up GitHub Actions workflow.
 
