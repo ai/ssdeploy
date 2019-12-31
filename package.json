@@ -8,9 +8,7 @@
     "cloudflare",
     "netlify"
   ],
-  "bin": {
-    "ssdeploy": "./bin.js"
-  },
+  "bin": "./bin.js",
   "type": "module",
   "engines": {
     "node": ">=13.2.0"
