@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.3
+* Show the size of the image after build.
+
 ## 0.2.4
 * Fix first deploy.
 * Fix deploy on local laptop.
