@@ -70,7 +70,7 @@ async function cleanOldImages (image) {
       `${ image } --filter='-tags:*' --format='get(digest)'`
     )
     await Promise.all(out.trim().split('\n').map(i => {
-      return exec(`gcloud container images delete '${ image }@${ i }'`)
+      return exec(`gcloud container images delete '${ image }@${ i }' --quiet`)
     }))
     spinner.succeed(`Removed ${ removed } images`)
   })
