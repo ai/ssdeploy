@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.2.3
+* Clean up GitHub Actions workflow.
+
 ## 0.2.2
 * Add `--verbose` support to `ssdeploy run` and `ssdeploy shell`.
 
