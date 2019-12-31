@@ -65,12 +65,31 @@ but after you have the same simple workflow.
     domain, and leave subdomain blank. You will get `A` and `AAAA` records.
 18. Create a new [Cloudflare] account.
     Create a site with `A` and `AAAA` records from Cloud Run.
-19. Find **Zone ID** at site overview and create **API token**
+19. Enable **HTTP/3** and **0-RTT** in Cloudflare **Network** settings.
+20. Find **Zone ID** at site overview and create **API token**
     with `cache cleaner` name and `Cache Purge`/`Edit` permission.
-20. Use them in `CLOUDFLARE_ZONE` and `CLOUDFLARE_TOKEN` secrets at GitHub.
+21. Use them in `CLOUDFLARE_ZONE` and `CLOUDFLARE_TOKEN` secrets at GitHub.
+22. Go to Google Cloud Run, **Manage Custom Domains** → **Add mapping**
+    to add `www` subdomain and add `CNAME` record to Cloudflare **DNS**
+    settings.
+
+We recommend to check final result
+[for blocking in Russia](https://isitblockedinrussia.com/) and recreate
+Cloudflare account to change IP addressed.
 
 [Google Cloud]: https://console.cloud.google.com/
 [Cloudflare]: https://www.cloudflare.com/
+
+
+## Deploy
+
+Just push commits to `master`:
+
+```sh
+git push origin master
+```
+
+You can switch deploy branch at `.github/workflows/deploy.yml`.
 
 
 ## Run Server Locally
