@@ -7,6 +7,7 @@ import chalk from 'chalk'
 import detectDocker from './detect-docker.js'
 import showSpinner from './show-spinner.js'
 import { ROOT } from './dirs.js'
+import debug, { debugCmd } from './debug.js'
 
 export default async function build (name, env = process.env) {
   let root = dirname(await pkgUp())
@@ -36,13 +37,13 @@ export default async function build (name, env = process.env) {
     if (bin === 'podman') text = 'Building Podman image'
 
     await new Promise((resolve, reject) => {
-      let docker = spawn(bin, [
-        'build',
-        '-f', dockerfile,
-        '-t', name,
-        '.'
-      ], { env })
+      let args = ['build', '-f', dockerfile, '-t', name, '.']
+      debugCmd(bin + ' ' + args.join(' '))
+      let docker = spawn(bin, args, { env })
       let spinner = showSpinner(text)
+      docker.stdout.on('data', data => {
+        debug(data)
+      })
       docker.stderr.on('data', data => {
         spinner.fail()
         process.stderr.write(chalk.red(data))

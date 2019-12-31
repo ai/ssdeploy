@@ -1,7 +1,11 @@
 import ora from 'ora'
 
+import { isDebug } from './debug.js'
+
 export default function showSpinner (text) {
-  return ora({ text, color: 'green' }).start()
+  let opts = { text, color: 'green' }
+  if (isDebug) opts.isEnabled = false
+  return ora(opts).start()
 }
 
 export async function wrap (text, cb) {

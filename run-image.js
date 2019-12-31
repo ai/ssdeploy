@@ -3,11 +3,13 @@ import chalk from 'chalk'
 import open from 'open'
 
 import detectDocker from './detect-docker.js'
+import { debugCmd } from './debug.js'
 import build from './build.js'
 
 let y = chalk.yellow
 
 export default async function runImage (script) {
+  let bin = await detectDocker()
   let name = await build()
   let args = [
     'run',
@@ -19,7 +21,8 @@ export default async function runImage (script) {
     '-it', name
   ]
   if (script) args.push(script)
-  spawn(await detectDocker(), args, { stdio: 'inherit' })
+  debugCmd(bin + ' ' + args.join(' '))
+  spawn(bin, args, { stdio: 'inherit' })
   if (!script) {
     let ctrlC = 'Ctrl+C'
     if (process.platform === 'darwin') ctrlC = 'Cmd + .'

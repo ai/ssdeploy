@@ -1,6 +1,7 @@
 import { spawn } from 'child_process'
 import chalk from 'chalk'
 
+import debug, { isDebug, debugCmd } from './debug.js'
 import { wrap } from './show-spinner.js'
 import showError from './show-error.js'
 import build from './build.js'
@@ -11,17 +12,9 @@ for (let i in process.env) {
   if (!/^(GCLOUD_|CLOUDFLARE_)/.test(i)) safeEnv[i] = process.env[i]
 }
 
-let isVerbose = process.argv.some(i => i === '--verbose')
-
-function debug (text) {
-  if (isVerbose) {
-    process.stderr.write(text + '\n')
-  }
-}
-
 async function exec (command, opts) {
   return new Promise((resolve, reject) => {
-    debug(chalk.gray('$ ' + command + '\n'))
+    debugCmd(command)
     let cmd = spawn(command, { ...opts, env: safeEnv, shell: '/bin/bash' })
     let stdout = ''
     let stderr = ''
@@ -36,7 +29,7 @@ async function exec (command, opts) {
     cmd.on('exit', code => {
       if (code === 0) {
         resolve(stdout)
-      } else if (isVerbose) {
+      } else if (isDebug) {
         reject(showError('Exit code ' + code))
       } else {
         reject(showError(stderr))
