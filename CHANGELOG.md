@@ -1,6 +1,10 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.4
+* Rename `node_modules/ssdeploy/purge` to `node_modules/ssdeploy/purge.js`.
+* Move configs to `node_modules/ssdeploy/configs`.
+
 ## 0.3.1
 * Fix cleaned images count.
 
