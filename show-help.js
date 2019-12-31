@@ -21,7 +21,7 @@ export default function showHelp () {
     '  ' + g('sign') + ' ' + y('FILE') + '   Sign security.txt',
     '',
     b('Arguments:'),
-    '  ' + g('--verbose') + '   Show debug information',
+    '  ' + y('--verbose') + '   Show debug information',
     '',
     b('Examples:'),
     '  npx ssdeploy deploy',
