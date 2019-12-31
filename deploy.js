@@ -80,7 +80,7 @@ export default async function deploy () {
   let app = process.env.GCLOUD_APP
   let image = `gcr.io/${ project }/${ app }`
 
-  await build(image, safeEnv)
+  await build(image, safeEnv, true)
   await push(image)
   await run(image, project, app, process.env.GCLOUD_REGION)
   await purge()

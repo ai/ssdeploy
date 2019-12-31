@@ -9,7 +9,7 @@ import showSpinner from './show-spinner.js'
 import { ROOT } from './dirs.js'
 import debug, { debugCmd } from './debug.js'
 
-export default async function build (name, env = process.env) {
+export default async function build (name, env = process.env, forceDocker) {
   let root = dirname(await pkgUp())
   if (!name) name = basename(root)
 
@@ -32,7 +32,7 @@ export default async function build (name, env = process.env) {
       temp.push(nginxPath)
     }
 
-    let bin = await detectDocker()
+    let bin = forceDocker ? 'docker' : await detectDocker()
     let text = 'Building Docker image'
     if (bin === 'podman') text = 'Building Podman image'
 
