@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.3.1
+* Fix cleaned images count.
+
 ## 0.3
 * Show the size of the image after build.
 
