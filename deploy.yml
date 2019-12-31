@@ -32,7 +32,6 @@ jobs:
       - name: Build static files
         run: yarn build
         env:
-          CI: 1
           FORCE_COLOR: 2
           GITTER_TOKEN: ${{ secrets.GITTER_TOKEN }}
           GITTER_ROOM_ID: ${{ secrets.GITTER_ROOM_ID }}
