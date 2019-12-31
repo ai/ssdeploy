@@ -3,14 +3,14 @@ import { basename, dirname, join } from 'path'
 import { spawn } from 'child_process'
 import pkgUp from 'pkg-up'
 import chalk from 'chalk'
-import ora from 'ora'
 
 import detectDocker from './detect-docker.js'
+import showSpinner from './show-spinner.js'
 import { ROOT } from './dirs.js'
 
-export default async function build () {
+export default async function build (name, env = process.env) {
   let root = dirname(await pkgUp())
-  let name = basename(root)
+  if (!name) name = basename(root)
 
   let customDocker = join(root, 'Dockerfile')
   let localDocker = join(ROOT, 'Dockerfile')
@@ -41,8 +41,8 @@ export default async function build () {
         '-f', dockerfile,
         '-t', name,
         '.'
-      ])
-      let spinner = ora({ text, color: 'green' }).start()
+      ], { env })
+      let spinner = showSpinner(text)
       docker.stderr.on('data', data => {
         spinner.fail()
         process.stderr.write(chalk.red(data))
