@@ -11,25 +11,35 @@ for (let i in process.env) {
   if (!/^(GCLOUD_|CLOUDFLARE_)/.test(i)) safeEnv[i] = process.env[i]
 }
 
+let isVerbose = process.argv.some(i => i === '--verbose')
+
+function debug (text) {
+  if (isVerbose) {
+    process.stderr.write(text + '\n')
+  }
+}
+
 async function exec (command, opts) {
   return new Promise((resolve, reject) => {
-    process.stderr.write(chalk.gray('$ ' + command + '\n'))
+    debug(chalk.gray('$ ' + command + '\n'))
     let cmd = spawn(command, { ...opts, env: safeEnv, shell: '/bin/bash' })
     let stdout = ''
+    let stderr = ''
     cmd.stdout.on('data', data => {
       stdout += data.toString()
-      process.stderr.write(data.toString())
+      debug(data.toString())
     })
     cmd.stderr.on('data', data => {
-      process.stderr.write(chalk.red(data))
+      stderr += data.toString()
+      debug(chalk.red(data))
     })
     cmd.on('exit', code => {
       if (code === 0) {
         resolve(stdout)
+      } else if (isVerbose) {
+        reject(showError('Exit code ' + code))
       } else {
-        let err = new Error('Command error ' + code)
-        err.own = true
-        reject(err)
+        reject(showError(stderr))
       }
     })
   })
