@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import dotenv from 'dotenv'
 import chalk from 'chalk'
 
 import showVersion from './show-version.js'
@@ -8,6 +9,8 @@ import runImage from './run-image.js'
 import deploy from './deploy.js'
 import purge from './purge.js'
 import sign from './sign.js'
+
+dotenv.config()
 
 async function run () {
   let command = process.argv[2]
