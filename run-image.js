@@ -21,8 +21,8 @@ export default async function runImage () {
   let ctrlC = 'Ctrl+C'
   if (process.platform === 'darwin') ctrlC = 'Cmd + .'
   process.stdout.write(
-    `Website is available to test at ${ y('http://localhost:8000/') }\n` +
-    `Press ${ y(ctrlC) } to stop the server\n`
+    `  Website is available to test at ${ y('http://localhost:8000/') }\n` +
+    `  Press ${ y(ctrlC) } to stop the server\n`
   )
   open('http://localhost:8000/')
 }
