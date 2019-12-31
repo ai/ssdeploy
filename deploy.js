@@ -37,7 +37,7 @@ async function exec (command, opts) {
 
 async function push (image) {
   await wrap('Pushing image to Google Cloud Registry', async () => {
-    await exec('gcloud auth configure-docker')
+    await exec('gcloud auth configure-docker --quiet')
     await exec(`docker push ${ image }`)
   })
 }
