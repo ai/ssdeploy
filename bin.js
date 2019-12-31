@@ -8,6 +8,7 @@ import showHelp from './show-help.js'
 import runImage from './run-image.js'
 import deploy from './deploy.js'
 import purge from './purge.js'
+import init from './init.js'
 import sign from './sign.js'
 
 dotenv.config()
@@ -18,6 +19,8 @@ async function run () {
     await showVersion()
   } else if (!command || command === 'help' || command === '--help') {
     showHelp()
+  } else if (command === 'init') {
+    await init()
   } else if (command === 'run') {
     await runImage()
   } else if (command === 'purge') {

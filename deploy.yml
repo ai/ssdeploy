@@ -1,0 +1,51 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '>=13.2'
+      - name: Get Yarn cache
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Cache Yarn
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: yarn-production-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            yarn-production-
+      - name: Install build dependencies
+        run: yarn install --production
+      - name: Build static files
+        run: yarn build
+        env:
+          CI: 1
+          FORCE_COLOR: 2
+          GITTER_TOKEN: ${{ secrets.GITTER_TOKEN }}
+          GITTER_ROOM_ID: ${{ secrets.GITTER_ROOM_ID }}
+      - name: Install Google Cloud
+        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          version: '274.0.1'
+          service_account_key: ${{ secrets.GCLOUD_AUTH }}
+      - name: Deploy files
+        run: yarn run ssdeploy deploy
+        env:
+          FORCE_COLOR: 2
+          GCLOUD_APP: ${{ secrets.GCLOUD_APP }}
+          GCLOUD_PROJECT: ${{ secrets.GCLOUD_PROJECT }}
+          CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
+          CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
