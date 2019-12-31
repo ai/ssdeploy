@@ -63,13 +63,13 @@ async function run (image, project, app, region = 'us-east1') {
 }
 
 async function cleanOldImages (image) {
-  await wrap('Cleaning old images', async spinner => {
+  await wrap('Cleaning registry from old images', async spinner => {
     let removed = 0
     let out = await exec(
       'gcloud container images list-tags ' +
       `${ image } --filter='-tags:*' --format='get(digest)'`
     )
-    await Promise.all(out.strip().split('\n').map(i => {
+    await Promise.all(out.trim().split('\n').map(i => {
       return exec(`gcloud container images delete '${ image }@${ i }'`)
     }))
     spinner.succeed(`Removed ${ removed } images`)
