@@ -101,8 +101,8 @@ if ($host ~ ^www\.(?<domain>.+)$) {
   return 301 https://$domain$request_uri;
 }
 
-if (-d $request_filename) {
-  rewrite [^/]$ https://$http_host$uri/ permanent;
+location ~* "(\.css|\.png|\.svg|\.woff2)$" {
+  add_header Cache-Control "public, max-age=31536000, immutable";
 }
 ```
 
