@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.4.1
+* Show step number during the build.
+
 ## 0.4
 * Rename `node_modules/ssdeploy/purge` to `node_modules/ssdeploy/purge.js`.
 * Move configs to `node_modules/ssdeploy/configs`.
