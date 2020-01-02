@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.4.2
+* Fix deploy without previous images to clean.
+
 ## 0.4.1
 * Show step number during the build.
 
