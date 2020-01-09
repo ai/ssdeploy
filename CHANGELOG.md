@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.5.1
+* Fix `trim()` error on default region environment variable.
+
 ## 0.5
 * Add `npm` support.
 * Add `--verbose` by default to deploy workflow.
