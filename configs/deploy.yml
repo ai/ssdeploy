@@ -17,20 +17,30 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '>=13.2'
-      - name: Get Yarn cache
-        id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Cache Yarn
-        uses: actions/cache@v1
-        with:
-          path: ${{ steps.yarn-cache.outputs.dir }}
-          key: yarn-production-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            yarn-production-
+YARN      - name: Get Yarn cache path
+YARN        id: yarn-cache
+YARN        run: echo "::set-output name=dir::$(yarn cache dir)"
+YARN      - name: Cache Yarn
+YARN        uses: actions/cache@v1
+YARN        with:
+YARN          path: ${{ steps.yarn-cache.outputs.dir }}
+YARN          key: yarn-production-${{ hashFiles('**/yarn.lock') }}
+YARN          restore-keys: yarn-production-
+NPM       - name: Cache npm
+NPM         uses: actions/cache@v1
+NPM         with:
+NPM           path: ${{ steps.npm-cache.outputs.dir }}
+NPM           key: npm-production-${{ hashFiles('**/package-lock.json') }}
+NPM           restore-keys: npm-production-
+NPM       - name: Get npm cache path
+NPM         id: npm-cache
+NPM         run: echo "::set-output name=dir::$(npm config get cache)"
       - name: Install build dependencies
-        run: yarn install --production
+YARN        run: yarn install --production
+NPM         run: npm ci --only=production
       - name: Build static files
-        run: yarn build
+YARN        run: yarn build
+NPM         run: npm build
         env:
           GITTER_TOKEN: ${{ secrets.GITTER_TOKEN }}
           GITTER_ROOM_ID: ${{ secrets.GITTER_ROOM_ID }}
