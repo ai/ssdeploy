@@ -1,6 +1,11 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.5
+* Add `npm` support.
+* Add `--verbose` by default to deploy workflow.
+* Fix error on new line and spaces in environment variables.
+
 ## 0.4.2
 * Fix deploy without previous images to clean.
 
