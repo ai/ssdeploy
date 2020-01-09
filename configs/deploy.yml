@@ -50,7 +50,7 @@ NPM         run: npm build
           version: '274.0.1'
           service_account_key: ${{ secrets.GCLOUD_AUTH }}
       - name: Deploy files
-        run: yarn run ssdeploy deploy
+        run: yarn run ssdeploy deploy --verbose
         env:
           GCLOUD_APP: ${{ secrets.GCLOUD_APP }}
           GCLOUD_PROJECT: ${{ secrets.GCLOUD_PROJECT }}
