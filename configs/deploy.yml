@@ -43,20 +43,20 @@ YARN        run: yarn build
 NPM         run: npm build
         env:
           FORCE_COLOR: 2
-      - name: Check dist/ changes
-        id: distCheck
+      - name: Check files changes
+        id: hash
         run: npx ssdeploy changed
         env:
           FORCE_COLOR: 2
           WEBSITE_URL: ${{ secrets.WEBSITE_URL }}
       - name: Install Google Cloud
-        if: "!steps.distCheck.outputs.noChanges"
+        if: "!steps.hash.outputs.noChanges"
         uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
           version: '274.0.1'
           service_account_key: ${{ secrets.GCLOUD_AUTH }}
       - name: Deploy files
-        if: "!steps.distCheck.outputs.noChanges"
+        if: "!steps.hash.outputs.noChanges"
         run: npx ssdeploy deploy --verbose
         env:
           FORCE_COLOR: 2
