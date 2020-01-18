@@ -42,6 +42,7 @@ NPM         run: npm ci --only=production
 YARN        run: yarn build
 NPM         run: npm build
         env:
+          FORCE_COLOR: 2
           GITTER_TOKEN: ${{ secrets.GITTER_TOKEN }}
           GITTER_ROOM_ID: ${{ secrets.GITTER_ROOM_ID }}
       - name: Check dist/ changes
@@ -57,6 +58,7 @@ NPM         run: npm build
         if: !steps.distCheck.outputs.noChanges
         run: npx ssdeploy deploy --verbose
         env:
+          FORCE_COLOR: 2
           GCLOUD_APP: ${{ secrets.GCLOUD_APP }}
           GCLOUD_PROJECT: ${{ secrets.GCLOUD_PROJECT }}
           CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
