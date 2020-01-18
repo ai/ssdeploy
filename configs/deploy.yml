@@ -50,13 +50,13 @@ NPM         run: npm build
           FORCE_COLOR: 2
           WEBSITE_URL: ${{ secrets.WEBSITE_URL }}
       - name: Install Google Cloud
-        if: !steps.distCheck.outputs.noChanges
+        if: "!steps.distCheck.outputs.noChanges"
         uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
           version: '274.0.1'
           service_account_key: ${{ secrets.GCLOUD_AUTH }}
       - name: Deploy files
-        if: !steps.distCheck.outputs.noChanges
+        if: "!steps.distCheck.outputs.noChanges"
         run: npx ssdeploy deploy --verbose
         env:
           FORCE_COLOR: 2
