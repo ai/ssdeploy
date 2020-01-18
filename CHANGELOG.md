@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.9
+* Remove color from GitHub Actions output variable.
+
 ## 0.6.8
 * Fix GitHub Actions output variable.
 
