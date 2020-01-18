@@ -1,6 +1,6 @@
 {
   "name": "ssdeploy",
-  "version": "0.6.5",
+  "version": "0.6.6",
   "description": "Netlify replacement to deploy simple websites with better flexibility and speed and without vendor lock-in",
   "keywords": [
     "deploy",

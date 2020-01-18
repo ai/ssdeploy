@@ -1,6 +1,12 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.6
+* Use configs in `ssdeploy changed` hash.
+* Remove white spaces from `WEBSITE_URL` environment variable too.
+* Fix GitHub Actions output variable.
+* Fix text in `ssdeploy changed`.
+
 ## 0.6.5
 * Fix error message.
 
