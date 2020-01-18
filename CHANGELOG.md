@@ -1,6 +1,10 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6
+* Do not spend resources to deploy website if files were not changed.
+* Fix colors on GitHub Actions.
+
 ## 0.5.1
 * Fix `trim()` error on default region environment variable.
 
