@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.2
+* Clean up GitHub Actions workflow.
+
 ## 0.6.1
 * Fix GitHub Actions workflow for `ssdeploy changed`.
 
