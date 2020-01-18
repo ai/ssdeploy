@@ -44,13 +44,18 @@ NPM         run: npm build
         env:
           GITTER_TOKEN: ${{ secrets.GITTER_TOKEN }}
           GITTER_ROOM_ID: ${{ secrets.GITTER_ROOM_ID }}
+      - name: Check dist/ changes
+        id: distCheck
+        run: npx ssdeploy changed
       - name: Install Google Cloud
+        if: !steps.distCheck.outputs.noChanges
         uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
           version: '274.0.1'
           service_account_key: ${{ secrets.GCLOUD_AUTH }}
       - name: Deploy files
-        run: yarn run ssdeploy deploy --verbose
+        if: !steps.distCheck.outputs.noChanges
+        run: npx ssdeploy deploy --verbose
         env:
           GCLOUD_APP: ${{ secrets.GCLOUD_APP }}
           GCLOUD_PROJECT: ${{ secrets.GCLOUD_PROJECT }}

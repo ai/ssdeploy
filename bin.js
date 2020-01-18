@@ -6,6 +6,7 @@ import chalk from 'chalk'
 import showVersion from './lib/show-version.js'
 import showHelp from './lib/show-help.js'
 import runImage from './lib/run-image.js'
+import changed from './lib/changed.js'
 import deploy from './lib/deploy.js'
 import purge from './lib/purge.js'
 import init from './lib/init.js'
@@ -27,6 +28,8 @@ async function run () {
     await runImage()
   } else if (command === 'purge') {
     await purge()
+  } else if (command === 'changed') {
+    await changed()
   } else if (command === 'deploy') {
     await deploy()
   } else if (command === 'sign') {

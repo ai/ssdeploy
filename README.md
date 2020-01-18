@@ -39,41 +39,43 @@ but after you have the same simple workflow.
 5. Open **Container Registry** and enable the service.
 6. Open **Cloud Run** and start the service.
 7. Go to your GitHub page of your project at **Settings** → **Secrets**.
-8. Add new secret `GCLOUD_PROJECT` with Google Cloud project name like
+8. Add new secret `WEBSITE_URL` with URL to your website domain
+   (like `example.com`).
+9. Add new secret `GCLOUD_PROJECT` with Google Cloud project name like
    `test-255417`. You can find project ID by opening a project switcher
    at the top of [Google Cloud].
-9. Choose application name (like `examplecom`) and add `GCLOUD_APP` secret with
+10. Choose application name (like `examplecom`) and add `GCLOUD_APP` secret with
    this name.
-10. Call `base64 key-partition-….json` (file from step 4) and add `GCLOUD_AUTH`
+11. Call `base64 key-partition-….json` (file from step 4) and add `GCLOUD_AUTH`
     secret with the base64 content of this file.
-11. Install Solid State Deploy to your project.
+12. Install Solid State Deploy to your project.
 
     ```sh
     npm i ssdeploy
     ```
-12. Create GitHub Actions workflow by calling:
+13. Create GitHub Actions workflow by calling:
 
     ```sh
     npx ssdeploy init
     ```
-13. Your project should build HTML files by `npm build` and put them to `dist/`.
-14. Push the project’s changes to GitHub Actions to start deploying.
+14. Your project should build HTML files by `npm build` and put them to `dist/`.
+15. Push the project’s changes to GitHub Actions to start deploying.
     Open **Actions** tab on GitHub to check out the process.
-15. Go to **Cloud Run** at [Google Cloud] and find your server. Open it
+16. Go to **Cloud Run** at [Google Cloud] and find your server. Open it
     by clicking on the name and find the URL like `examplecom-hjv54hv.a.run.app`.
     Check that the website is working.
-16. Click on **Manage Custom Domains** → **Add mapping**. Select your app,
+17. Click on **Manage Custom Domains** → **Add mapping**. Select your app,
     **Verify a new domain**, and enter your domain name.
     Finish domain verification with Webmaster Central.
-17. After verification open **Add mapping** dialog again, select your app,
+18. After verification open **Add mapping** dialog again, select your app,
     domain, and leave subdomain blank. You will get `A` and `AAAA` records.
-18. Create a new [Cloudflare] account.
+19. Create a new [Cloudflare] account.
     Create a site with `A` and `AAAA` records from Cloud Run.
-19. Enable **HTTP/3** and **0-RTT** in Cloudflare **Network** settings.
-20. Find **Zone ID** at site overview and create **API token**
+20. Enable **HTTP/3** and **0-RTT** in Cloudflare **Network** settings.
+21. Find **Zone ID** at site overview and create **API token**
     with `cache cleaner` name and `Cache Purge`/`Edit` permission.
-21. Use them in `CLOUDFLARE_ZONE` and `CLOUDFLARE_TOKEN` secrets at GitHub.
-22. Go to Google Cloud Run, **Manage Custom Domains** → **Add mapping**
+22. Use them in `CLOUDFLARE_ZONE` and `CLOUDFLARE_TOKEN` secrets at GitHub.
+23. Go to Google Cloud Run, **Manage Custom Domains** → **Add mapping**
     to add `www` subdomain and add `CNAME` record to Cloudflare **DNS**
     settings.
 
