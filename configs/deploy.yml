@@ -48,6 +48,9 @@ NPM         run: npm build
       - name: Check dist/ changes
         id: distCheck
         run: npx ssdeploy changed
+        env:
+          FORCE_COLOR: 2
+          WEBSITE_URL: ${{ secrets.WEBSITE_URL }}
       - name: Install Google Cloud
         if: !steps.distCheck.outputs.noChanges
         uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
