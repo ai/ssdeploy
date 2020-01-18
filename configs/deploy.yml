@@ -43,8 +43,6 @@ YARN        run: yarn build
 NPM         run: npm build
         env:
           FORCE_COLOR: 2
-          GITTER_TOKEN: ${{ secrets.GITTER_TOKEN }}
-          GITTER_ROOM_ID: ${{ secrets.GITTER_ROOM_ID }}
       - name: Check dist/ changes
         id: distCheck
         run: npx ssdeploy changed
