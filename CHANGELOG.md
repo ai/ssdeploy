@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.4
+* Fix loading previous hash in `ssdeploy changed`.
+
 ## 0.6.3
 * Fix syntax error in GitHub Actions workflow.
 
