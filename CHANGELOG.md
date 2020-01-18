@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.1
+* Fix GitHub Actions workflow for `ssdeploy changed`.
+
 ## 0.6
 * Do not spend resources to deploy website if files were not changed.
 * Fix colors on GitHub Actions.
