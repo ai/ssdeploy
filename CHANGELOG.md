@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.7
+* Fix mark to check `ssdeploy changed` hash.
+
 ## 0.6.6
 * Use configs in `ssdeploy changed` hash.
 * Remove white spaces from `WEBSITE_URL` environment variable too.
