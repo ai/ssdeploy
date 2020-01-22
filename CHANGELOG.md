@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.10
+* Use `stderr` for debug messages.
+
 ## 0.6.9
 * Remove color from GitHub Actions output variable.
 
