@@ -52,7 +52,7 @@
     "extends": "@logux/eslint-config/node"
   },
   "eslintIgnore": [
-    "dirs.js"
+    "lib/dirs.js"
   ],
   "lint-staged": {
     "*.md": "yaspeller",
