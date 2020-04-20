@@ -18,12 +18,12 @@
   },
   "dependencies": {
     "bytes": "^3.1.0",
-    "chalk": "^3.0.0",
+    "chalk": "^4.0.0",
     "dotenv": "^8.2.0",
     "folder-hash": "^3.3.0",
-    "hasha": "^5.1.0",
-    "make-dir": "^3.0.0",
-    "open": "^7.0.0",
+    "hasha": "^5.2.0",
+    "make-dir": "^3.0.2",
+    "open": "^7.0.3",
     "ora": "^4.0.3",
     "pkg-up": "^3.1.0"
   },
@@ -31,25 +31,25 @@
   "license": "MIT",
   "repository": "ai/ssdeploy",
   "devDependencies": {
-    "@logux/eslint-config": "^35.0.1",
-    "clean-publish": "^1.1.4",
+    "@logux/eslint-config": "^36.1.2",
+    "clean-publish": "^1.1.7",
     "eslint": "^6.7.2",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-es5": "^1.4.1",
-    "eslint-plugin-import": "^2.20.0",
-    "eslint-plugin-jest": "^23.6.0",
-    "eslint-plugin-node": "^11.0.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-es5": "^1.5.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prefer-let": "^1.0.1",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-security": "^1.4.0",
     "eslint-plugin-standard": "^4.0.1",
-    "eslint-plugin-unicorn": "^15.0.1",
-    "husky": "^4.2.0",
-    "lint-staged": "^10.0.2",
-    "yaspeller": "^6.0.2"
+    "eslint-plugin-unicorn": "^18.0.1",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.1.6",
+    "yaspeller": "^7.0.0"
   },
   "eslintConfig": {
-    "extends": "@logux/eslint-config/node"
+    "extends": "@logux/eslint-config"
   },
   "eslintIgnore": [
     "lib/dirs.js"
