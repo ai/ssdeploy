@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.11
+* Improve image downloading output.
+
 ## 0.6.10
 * Use `stderr` for debug messages.
 
