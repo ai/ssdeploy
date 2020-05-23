@@ -40,7 +40,7 @@ async function run () {
     }
     await sign(file)
   } else {
-    process.stderr.write(chalk.red(`Unknown command ${ command }`) + '\n\n')
+    process.stderr.write(chalk.red(`Unknown command ${command}`) + '\n\n')
     showHelp()
     process.exit(1)
   }
