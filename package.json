@@ -20,32 +20,33 @@
     "bytes": "^3.1.0",
     "chalk": "^4.0.0",
     "dotenv": "^8.2.0",
-    "folder-hash": "^3.3.0",
+    "folder-hash": "^3.3.1",
     "hasha": "^5.2.0",
-    "make-dir": "^3.0.2",
-    "open": "^7.0.3",
-    "ora": "^4.0.3",
+    "make-dir": "^3.1.0",
+    "open": "^7.0.4",
+    "ora": "^4.0.4",
     "pkg-up": "^3.1.0"
   },
   "author": "Andrey Sitnik <andrey@sitnik.ru>",
   "license": "MIT",
   "repository": "ai/ssdeploy",
   "devDependencies": {
-    "@logux/eslint-config": "^36.1.2",
+    "@logux/eslint-config": "^39.0.3",
     "clean-publish": "^1.1.7",
-    "eslint": "^6.7.2",
+    "eslint": "^7.1.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-es5": "^1.5.0",
     "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-jest": "^23.13.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prefer-let": "^1.0.1",
+    "eslint-plugin-prettierx": "^0.12.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-security": "^1.4.0",
     "eslint-plugin-standard": "^4.0.1",
-    "eslint-plugin-unicorn": "^18.0.1",
+    "eslint-plugin-unicorn": "^20.0.0",
     "husky": "^4.2.5",
-    "lint-staged": "^10.1.6",
+    "lint-staged": "^10.2.6",
     "yaspeller": "^7.0.0"
   },
   "eslintConfig": {
@@ -56,7 +57,7 @@
   ],
   "lint-staged": {
     "*.md": "yaspeller",
-    "*.js": "eslint"
+    "*.js": "eslint --fix"
   },
   "husky": {
     "hooks": {
