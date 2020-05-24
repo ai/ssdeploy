@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.12
+* Fix Node.js 14 support.
+
 ## 0.6.11
 * Improve image downloading output.
 
