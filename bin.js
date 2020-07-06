@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import colorette from 'colorette'
+import { red } from 'colorette'
 import dotenv from 'dotenv'
 
 import showVersion from './lib/show-version.js'
@@ -35,18 +35,18 @@ async function run () {
   } else if (command === 'sign') {
     let file = process.argv[3]
     if (!file) {
-      process.stderr.write(colorette.red('Missed file to sign') + '\n')
+      process.stderr.write(red('Missed file to sign') + '\n')
       process.exit(1)
     }
     await sign(file)
   } else {
-    process.stderr.write(colorette.red(`Unknown command ${command}`) + '\n\n')
+    process.stderr.write(red(`Unknown command ${command}`) + '\n\n')
     showHelp()
     process.exit(1)
   }
 }
 
 run().catch(e => {
-  if (!e.own) process.stderr.write(colorette.red(e.stack) + '\n')
+  if (!e.own) process.stderr.write(red(e.stack) + '\n')
   process.exit(1)
 })

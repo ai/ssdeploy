@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "bytes": "^3.1.0",
-    "colorette": "^1.2.0",
+    "colorette": "^1.2.1",
     "dotenv": "^8.2.0",
     "folder-hash": "^3.3.2",
     "hasha": "^5.2.0",
@@ -33,11 +33,11 @@
   "devDependencies": {
     "@logux/eslint-config": "^39.0.3",
     "clean-publish": "^1.1.7",
-    "eslint": "^7.3.1",
+    "eslint": "^7.4.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-es5": "^1.5.0",
-    "eslint-plugin-import": "^2.21.2",
-    "eslint-plugin-jest": "^23.17.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^23.18.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prefer-let": "^1.0.1",
     "eslint-plugin-prettierx": "^0.12.1",
@@ -47,7 +47,7 @@
     "eslint-plugin-unicorn": "^20.1.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
-    "typescript": "^3.9.5",
+    "typescript": "^3.9.6",
     "yaspeller": "^7.0.0"
   },
   "eslintConfig": {
