@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.15
+* Fixed `colorette` imports.
+
 ## 0.6.14
 * Replace color output library.
 
