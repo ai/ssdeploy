@@ -1,8 +1,11 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.17
+* Added color output to CI on deploy.
+
 ## 0.6.16
-* Fix `.avif` support.
+* Fixed `.avif` support.
 
 ## 0.6.15
 * Fixed `colorette` imports.
