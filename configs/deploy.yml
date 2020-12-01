@@ -1,15 +1,13 @@
 name: Deploy
-
 on:
   push:
     branches:
       - master
-
+env:
+  FORCE_COLOR: 2
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    env:
-      FORCE_COLOR: 2
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v2
@@ -43,25 +41,20 @@ NPM         run: npm ci --only=production
       - name: Build static files
 YARN        run: yarn build
 NPM         run: npm build
-        env:
-          FORCE_COLOR: 2
       - name: Check files changes
         id: hash
         run: npx ssdeploy changed
         env:
-          FORCE_COLOR: 2
           WEBSITE_URL: ${{ secrets.WEBSITE_URL }}
       - name: Install Google Cloud
         if: "!steps.hash.outputs.noChanges"
         uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
-          version: '274.0.1'
           service_account_key: ${{ secrets.GCLOUD_AUTH }}
       - name: Deploy files
         if: "!steps.hash.outputs.noChanges"
         run: npx ssdeploy deploy --verbose
         env:
-          FORCE_COLOR: 2
           GCLOUD_APP: ${{ secrets.GCLOUD_APP }}
           GCLOUD_PROJECT: ${{ secrets.GCLOUD_PROJECT }}
           CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
