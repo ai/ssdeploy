@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.18
+* Fix `sign` command.
+
 ## 0.6.17
 * Added color output to CI on deploy.
 
