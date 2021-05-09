@@ -14,33 +14,15 @@ jobs:
         with:
           fetch-depth: 1
       - name: Install Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
-          node-version: '>=13.2'
-YARN      - name: Get Yarn cache path
-YARN        id: yarn-cache
-YARN        run: echo "::set-output name=dir::$(yarn cache dir)"
-YARN      - name: Cache Yarn
-YARN        uses: actions/cache@v1
-YARN        with:
-YARN          path: ${{ steps.yarn-cache.outputs.dir }}
-YARN          key: yarn-production-${{ hashFiles('**/yarn.lock') }}
-YARN          restore-keys: yarn-production-
-NPM       - name: Cache npm
-NPM         uses: actions/cache@v1
-NPM         with:
-NPM           path: ${{ steps.npm-cache.outputs.dir }}
-NPM           key: npm-production-${{ hashFiles('**/package-lock.json') }}
-NPM           restore-keys: npm-production-
-NPM       - name: Get npm cache path
-NPM         id: npm-cache
-NPM         run: echo "::set-output name=dir::$(npm config get cache)"
-      - name: Install build dependencies
-YARN        run: yarn install --production
-NPM         run: npm ci --only=production
+          node-version: 16
+      - name: Install dependencies
+        uses: bahmutov/npm-install@v1
+        env:
+          NODE_ENV: production
       - name: Build static files
-YARN        run: yarn build
-NPM         run: npm build
+        run: npm build
       - name: Check files changes
         id: hash
         run: npx ssdeploy changed
