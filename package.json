@@ -24,7 +24,6 @@
     "hasha": "^5.2.2",
     "make-dir": "^3.1.0",
     "open": "^8.0.8",
-    "ora": "^5.4.0",
     "pkg-up": "^3.1.0"
   },
   "author": "Andrey Sitnik <andrey@sitnik.ru>",
