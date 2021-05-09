@@ -1,6 +1,10 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.20
+* Updated workflow config.
+* Removed `ora`.
+
 ## 0.6.19
 * Update deploy workflow example.
 
