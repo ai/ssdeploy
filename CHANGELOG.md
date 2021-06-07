@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.21
+* Speed-up Docker build.
+
 ## 0.6.20
 * Updated workflow config.
 * Removed `ora`.
