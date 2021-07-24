@@ -30,7 +30,7 @@ jobs:
           WEBSITE_URL: ${{ secrets.WEBSITE_URL }}
       - name: Install Google Cloud
         if: "!steps.hash.outputs.noChanges"
-        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        uses: google-github-actions/setup-gcloud@master
         with:
           service_account_key: ${{ secrets.GCLOUD_AUTH }}
       - name: Deploy files
