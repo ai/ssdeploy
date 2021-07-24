@@ -1,6 +1,10 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.7
+* Dropped Node.js 13 support.
+* Reduced dependencies.
+
 ## 0.6.21
 * Speed-up Docker build.
 
