@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.7.1
+* Replaced `colorette` with `nanocolors`.
+
 ## 0.7
 * Dropped Node.js 13 support.
 * Reduced dependencies.
