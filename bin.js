@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { red } from 'colorette'
+import { red } from 'nanocolors'
 import dotenv from 'dotenv'
 
 import showVersion from './lib/show-version.js'
@@ -14,7 +14,7 @@ import sign from './lib/sign.js'
 
 dotenv.config()
 
-async function run () {
+async function run() {
   let command = process.argv[2]
   if (command === '--version') {
     await showVersion()
