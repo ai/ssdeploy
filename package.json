@@ -22,31 +22,31 @@
     "folder-hash": "^4.0.1",
     "hasha": "^5.2.2",
     "make-dir": "^3.1.0",
-    "open": "^8.2.1",
+    "open": "^8.3.0",
     "picocolors": "^1.0.0"
   },
   "author": "Andrey Sitnik <andrey@sitnik.ru>",
   "license": "MIT",
   "repository": "ai/ssdeploy",
   "devDependencies": {
-    "@logux/eslint-config": "^45.4.8",
-    "@typescript-eslint/eslint-plugin": "^4.31.2",
-    "@typescript-eslint/parser": "^4.31.2",
-    "clean-publish": "^2.2.0",
-    "eslint": "^7.32.0",
+    "@logux/eslint-config": "^46.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "clean-publish": "^3.4.1",
+    "eslint": "^8.0.0",
     "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.24.2",
-    "eslint-plugin-jest": "^24.4.2",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jest": "^25.0.5",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prefer-let": "^1.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-security": "^1.4.0",
-    "eslint-plugin-unicorn": "^36.0.0",
-    "lint-staged": "^11.1.2",
+    "eslint-plugin-unicorn": "^37.0.1",
+    "lint-staged": "^11.2.3",
     "prettier": "^2.4.1",
     "simple-git-hooks": "^2.6.1",
-    "typescript": "^4.4.3",
-    "yaspeller": "^7.0.0"
+    "typescript": "^4.4.4",
+    "yaspeller": "^7.2.0"
   },
   "eslintConfig": {
     "extends": "@logux/eslint-config/esm",
@@ -74,6 +74,9 @@
     "semi": false,
     "singleQuote": true,
     "trailingComma": "none"
+  },
+  "clean-publish": {
+    "cleanDocs": true
   },
   "yaspeller": {
     "lang": "en",
