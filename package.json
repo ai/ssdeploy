@@ -22,8 +22,8 @@
     "folder-hash": "^4.0.1",
     "hasha": "^5.2.2",
     "make-dir": "^3.1.0",
-    "nanocolors": "^0.1.1",
-    "open": "^8.2.1"
+    "open": "^8.2.1",
+    "picocolors": "^1.0.0"
   },
   "author": "Andrey Sitnik <andrey@sitnik.ru>",
   "license": "MIT",
