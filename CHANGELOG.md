@@ -1,6 +1,10 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.7.2
+* Replaced `nanocolors` with `piococolors`.
+* Reduced package size.
+
 ## 0.7.1
 * Replaced `colorette` with `nanocolors`.
 
