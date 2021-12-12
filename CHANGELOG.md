@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.8
+* Added `pnpm` support.
+
 ## 0.7.2
 * Replaced `nanocolors` with `piococolors`.
 * Reduced package size.
