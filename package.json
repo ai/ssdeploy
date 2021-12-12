@@ -17,7 +17,7 @@
     "test": "eslint ."
   },
   "dependencies": {
-    "bytes": "^3.1.0",
+    "bytes": "^3.1.1",
     "dotenv": "^10.0.0",
     "folder-hash": "^4.0.1",
     "hasha": "^5.2.2",
@@ -30,13 +30,13 @@
   "repository": "ai/ssdeploy",
   "devDependencies": {
     "@logux/eslint-config": "^46.1.0",
-    "clean-publish": "^3.4.3",
-    "eslint": "^8.2.0",
+    "clean-publish": "^3.4.4",
+    "eslint": "^8.4.1",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prefer-let": "^3.0.1",
-    "eslint-plugin-promise": "^5.1.1"
+    "eslint-plugin-promise": "^5.2.0"
   },
   "eslintConfig": {
     "extends": "@logux/eslint-config",
