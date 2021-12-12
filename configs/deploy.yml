@@ -17,15 +17,16 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16
+          cache: npm
       - name: Install dependencies
-        uses: bahmutov/npm-install@v1
+        run: npm install --frozen-lockfile
         env:
           NODE_ENV: production
       - name: Build static files
         run: npm build
       - name: Check files changes
         id: hash
-        run: npx ssdeploy changed
+        run: ./node_modules/.bin/ssdeploy changed
         env:
           WEBSITE_URL: ${{ secrets.WEBSITE_URL }}
       - name: Install Google Cloud
@@ -35,7 +36,7 @@ jobs:
           service_account_key: ${{ secrets.GCLOUD_AUTH }}
       - name: Deploy files
         if: "!steps.hash.outputs.noChanges"
-        run: npx ssdeploy deploy --verbose
+        run: ./node_modules/.bin/ssdeploy deploy --verbose
         env:
           GCLOUD_APP: ${{ secrets.GCLOUD_APP }}
           GCLOUD_PROJECT: ${{ secrets.GCLOUD_PROJECT }}
