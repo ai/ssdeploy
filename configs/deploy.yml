@@ -10,18 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 1
+        uses: actions/checkout@v3
       - name: Install Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 16
           cache: npm
       - name: Install dependencies
-        run: npm install --frozen-lockfile
-        env:
-          NODE_ENV: production
+        run: npm install --production --frozen-lockfile
       - name: Build static files
         run: npm build
       - name: Check files changes
@@ -31,7 +27,7 @@ jobs:
           WEBSITE_URL: ${{ secrets.WEBSITE_URL }}
       - name: Install Google Cloud
         if: "!steps.hash.outputs.noChanges"
-        uses: google-github-actions/setup-gcloud@master
+        uses: google-github-actions/setup-gcloud@v0
         with:
           service_account_key: ${{ secrets.GCLOUD_AUTH }}
       - name: Deploy files
