@@ -25,11 +25,13 @@ jobs:
         run: ./node_modules/.bin/ssdeploy changed
         env:
           WEBSITE_URL: ${{ secrets.WEBSITE_URL }}
+      - name: Auth Google Cloud
+        uses: google-github-actions/auth@v0
+        with:
+          credentials_json: ${{ secrets.GCLOUD_AUTH }}
       - name: Install Google Cloud
         if: "!steps.hash.outputs.noChanges"
         uses: google-github-actions/setup-gcloud@v0
-        with:
-          service_account_key: ${{ secrets.GCLOUD_AUTH }}
       - name: Deploy files
         if: "!steps.hash.outputs.noChanges"
         run: ./node_modules/.bin/ssdeploy deploy --verbose
