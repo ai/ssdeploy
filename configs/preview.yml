@@ -6,7 +6,7 @@ env:
 jobs:
   preview:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    if: github.ref != 'refs/heads/main'
     steps:
       - name: Notify about new deployment
         uses: bobheadxi/deployments@v1
