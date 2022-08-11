@@ -3,7 +3,7 @@
 import dotenv from 'dotenv'
 import pico from 'picocolors'
 
-import deploy, { cleanDeploy } from './lib/deploy.js'
+import deploy, { stopPreview } from './lib/deploy.js'
 import showVersion from './lib/show-version.js'
 import showHelp from './lib/show-help.js'
 import runImage from './lib/run-image.js'
@@ -44,7 +44,7 @@ async function run() {
   } else if (command === 'preview') {
     await deploy(getPullRequestId())
   } else if (command === 'close') {
-    await cleanDeploy(getPullRequestId())
+    await stopPreview(getPullRequestId())
   } else if (command === 'sign') {
     let file = process.argv[3]
     if (!file) {
