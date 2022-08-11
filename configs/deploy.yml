@@ -56,4 +56,3 @@ jobs:
           env: ${{ steps.deployment.outputs.env }}
           env_url: ${{ secrets.WEBSITE_URL }}
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
-
