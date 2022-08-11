@@ -3,16 +3,25 @@
 import dotenv from 'dotenv'
 import pico from 'picocolors'
 
+import deploy, { cleanDeploy } from './lib/deploy.js'
 import showVersion from './lib/show-version.js'
 import showHelp from './lib/show-help.js'
 import runImage from './lib/run-image.js'
 import changed from './lib/changed.js'
-import deploy from './lib/deploy.js'
 import purge from './lib/purge.js'
 import init from './lib/init.js'
 import sign from './lib/sign.js'
 
 dotenv.config()
+
+function getPullRequestId() {
+  let pr = process.argv[3]
+  if (!pr) {
+    process.stderr.write(pico.red('Missed pull request ID') + '\n')
+    process.exit(1)
+  }
+  return pr
+}
 
 async function run() {
   let command = process.argv[2]
@@ -32,6 +41,10 @@ async function run() {
     await changed()
   } else if (command === 'deploy') {
     await deploy()
+  } else if (command === 'preview') {
+    await deploy(getPullRequestId())
+  } else if (command === 'close') {
+    await cleanDeploy(getPullRequestId())
   } else if (command === 'sign') {
     let file = process.argv[3]
     if (!file) {
