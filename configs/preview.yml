@@ -36,11 +36,9 @@ jobs:
         with:
           credentials_json: ${{ secrets.GCLOUD_AUTH }}
       - name: Install Google Cloud
-        if: "!steps.hash.outputs.noChanges"
         uses: google-github-actions/setup-gcloud@v0
       - name: Deploy files
         id: deploy
-        if: "!steps.hash.outputs.noChanges"
         run: ./node_modules/.bin/ssdeploy preview $PR --verbose
         env:
           PR: ${{ github.event.number }}
