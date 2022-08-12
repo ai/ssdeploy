@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.9.1
+* Fixed `run` command for server with custom `Dockerfile` and without `dist`.
+
 ## 0.9
 * Added `preview` command.
 * Added `close` preview.
