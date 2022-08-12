@@ -14,6 +14,7 @@ jobs:
         with:
           step: start
           token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.head_ref }}
           env: preview-${{ github.event.number }}
       - name: Checkout the repository
         uses: actions/checkout@v3
