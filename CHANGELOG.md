@@ -1,6 +1,12 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.9
+* Added `preview` command.
+* Added `close` preview.
+* Added GitHub Deployment to CI.
+* Added workflows for preview pull requests.
+
 ## 0.8.1
 * Updated `dotenv`.
 * Updated GitHub Actions config example.
