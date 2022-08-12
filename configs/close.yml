@@ -3,7 +3,7 @@ on:
   pull_request:
     types: [ closed ]
 jobs:
-  preview:
+  close:
     runs-on: ubuntu-latest
     steps:
       - name: Clean from GitHub
