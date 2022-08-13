@@ -49,6 +49,7 @@ jobs:
           CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
       - name: Update deployment status
         uses: bobheadxi/deployments@v1
+        if: always()
         with:
           step: finish
           token: ${{ secrets.GITHUB_TOKEN }}
