@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.9.2
+* Fixed sending all traffic to latest revision.
+
 ## 0.9.1
 * Fixed `run` command for server with custom `Dockerfile` and without `dist`.
 
