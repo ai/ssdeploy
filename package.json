@@ -18,24 +18,24 @@
   },
   "dependencies": {
     "bytes": "^3.1.2",
-    "dotenv": "^16.0.1",
-    "folder-hash": "^4.0.2",
+    "dotenv": "^16.0.3",
+    "folder-hash": "^4.0.4",
     "hasha": "^5.2.2",
-    "open": "^8.4.0",
+    "open": "^8.4.1",
     "picocolors": "^1.0.0"
   },
   "author": "Andrey Sitnik <andrey@sitnik.ru>",
   "license": "MIT",
   "repository": "ai/ssdeploy",
   "devDependencies": {
-    "@logux/eslint-config": "^47.2.0",
-    "clean-publish": "^4.0.1",
-    "eslint": "^8.22.0",
+    "@logux/eslint-config": "^48.0.0",
+    "clean-publish": "^4.1.1",
+    "eslint": "^8.34.0",
     "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-n": "^15.2.4",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.1",
     "eslint-plugin-prefer-let": "^3.0.1",
-    "eslint-plugin-promise": "^6.0.0"
+    "eslint-plugin-promise": "^6.1.1"
   },
   "eslintConfig": {
     "extends": "@logux/eslint-config",
