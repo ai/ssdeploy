@@ -31,14 +31,14 @@ but after you have the same simple workflow.
 1. Create an account in [Google Cloud].
 2. Go to **IAM & Admin** → **Service Accounts**,
    click **Create Service Account** and fill form:
-   * Service Account Name: `github-actions`
-   * Service Account Description: `Deploy from GitHub Actions`
+   * Service Account Name: `Github-actions`
+   * Service Account Description: `Deploy from Github Actions`
 3. Add **Cloud Run Admin**, **Storage Admin**, **Service Account User** roles.
 4. Click **Create Key**, choose **JSON** → **Create**, download and keep
    file for a while.
 5. Open **Container Registry** and enable the service.
 6. Open **Cloud Run** and start the service.
-7. Go to your GitHub page of your project at **Settings** → **Secrets**.
+7. Go to your Github page of your project at **Settings** → **Secrets**.
 8. Add new secret `WEBSITE_URL` with URL to your website domain
    (like `example.com`).
 9. Add new secret `GCLOUD_PROJECT` with Google Cloud project name like
@@ -53,14 +53,14 @@ but after you have the same simple workflow.
     ```sh
     npm i ssdeploy
     ```
-13. Create GitHub Actions workflow by calling:
+13. Create Github Actions workflow by calling:
 
     ```sh
     npx ssdeploy init
     ```
 14. Your project should build HTML files by `npm build` and put them to `dist/`.
-15. Push the project’s changes to GitHub Actions to start deploying.
-    Open **Actions** tab on GitHub to check out the process.
+15. Push the project’s changes to Github Actions to start deploying.
+    Open **Actions** tab on Github to check out the process.
 16. Go to **Cloud Run** at [Google Cloud] and find your server. Open it
     by clicking on the name and find the URL like `examplecom-hjv54hv.a.run.app`.
     Check that the website is working.
@@ -74,7 +74,7 @@ but after you have the same simple workflow.
 20. Enable **HTTP/3** and **0-RTT** in Cloudflare **Network** settings.
 21. Find **Zone ID** at site overview and create **API token**
     with `cache cleaner` name and `Cache Purge`/`Edit` permission.
-22. Use them in `CLOUDFLARE_ZONE` and `CLOUDFLARE_TOKEN` secrets at GitHub.
+22. Use them in `CLOUDFLARE_ZONE` and `CLOUDFLARE_TOKEN` secrets at Github.
 23. Go to Google Cloud Run, **Manage Custom Domains** → **Add mapping**
     to add `www` subdomain and add `CNAME` record to Cloudflare **DNS**
     settings.
@@ -114,7 +114,7 @@ Just push commits to `master`:
 git push origin master
 ```
 
-You can switch deploy branch at `.github/workflows/deploy.yml`.
+You can switch deploy branch at `.Github/workflows/deploy.yml`.
 
 
 ## Run Server Locally
