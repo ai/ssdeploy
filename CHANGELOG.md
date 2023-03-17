@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.9.3
+* Move to the new Github Actions output API.
+
 ## 0.9.2
 * Fixed sending all traffic to latest revision.
 
