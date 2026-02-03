@@ -30,7 +30,7 @@
   "devDependencies": {
     "@logux/eslint-config": "^49.0.0",
     "clean-publish": "^4.1.1",
-    "eslint": "^8.36.0",
+    "eslint": "^9.26.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-n": "^15.6.1",
